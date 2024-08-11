@@ -95,7 +95,7 @@ public class PersonServiceImpl implements PersonService {
         SortOperation sortOperation = Aggregation.sort(Sort.Direction.DESC,"popCount");
         ProjectionOperation projectionOperation = Aggregation.project().andExpression("_id")
                                                     .as("city").andExpression("popCount").as("count").andExclude("_id");
-        Aggregation aggregation = Aggregation.newAggregation(unwindOperation,sortOperation,projectionOperation);
+        Aggregation aggregation = Aggregation.newAggregation(unwindOperation,sortOperation,groupOperation,projectionOperation);
         List<Document> person = mongoTemplate.aggregate(aggregation,Person.class,Document.class).getMappedResults();                                            
         return person;
     }
