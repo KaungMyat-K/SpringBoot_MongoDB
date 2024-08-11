@@ -72,5 +72,11 @@ public class PersonController {
         List<Document> persons = personService.getOldestPersonByCity();
         return new ResponseEntity<>(persons,HttpStatus.OK);
     }
+
+    @GetMapping("/populationByCity")
+    public ResponseEntity<List<Document>> getPopulationByCity(){
+        List<Document> persons = personService.getPopulationByCity();
+        return new ResponseEntity<>(persons,HttpStatus.OK);
+    }
     
 }
