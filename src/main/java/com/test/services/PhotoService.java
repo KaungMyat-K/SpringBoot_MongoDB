@@ -6,6 +6,7 @@ import com.test.collection.Photo;
 
 public interface PhotoService {
     
-    Photo savePhoto(String originalFileName,MultipartFile multipartFile);
+    Photo savePhotoinDB(String originalFileName,MultipartFile multipartFile);
+    String savePhotoinLocal(String originalFileName,MultipartFile multipartFile);
     Photo getPhotoById(String id);
 }

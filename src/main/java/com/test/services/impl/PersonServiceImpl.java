@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.GroupOperation;
@@ -31,6 +32,8 @@ public class PersonServiceImpl implements PersonService {
 
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    private MongoOperations operations;
 
     @Override
     public String save(Person person) {
